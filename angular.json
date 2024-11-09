@@ -35,18 +35,17 @@
             "assets": [
               {
                 "glob": "**/*",
-                "input": "public"
+                "input": "src/assets"
               }
             ],
             "styles": [
-              "src/styles.sass"
+              "@angular/material/prebuilt-themes/azure-blue.css",
+              "src/styles.sass",
+              "node_modules/leaflet/dist/leaflet.css"
             ],
             "scripts": [],
             "server": "src/main.server.ts",
-            "prerender": true,
-            "ssr": {
-              "entry": "server.ts"
-            }
+            "prerender": false
           },
           "configurations": {
             "production": {
@@ -99,11 +98,13 @@
             "assets": [
               {
                 "glob": "**/*",
-                "input": "public"
+                "input": "src/assets"
               }
             ],
             "styles": [
-              "src/styles.sass"
+              "@angular/material/prebuilt-themes/azure-blue.css",
+              "src/styles.sass",
+              "node_modules/leaflet/dist/leaflet.css"
             ],
             "scripts": []
           }
