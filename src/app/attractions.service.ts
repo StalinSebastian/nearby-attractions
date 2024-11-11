@@ -15,10 +15,24 @@ export class AttractionsService {
       action: 'query',
       list: 'geosearch',
       gscoord: `${lat}|${lon}`,
-      gsradius: '10000', // Radius in meters
+      gsradius: '10000', // Change this value to a smaller radius (e.g., 5000 meters)
       gslimit: '10', // Limit the number of results
       format: 'json',
       origin: '*'
+    };
+
+    return this.http.get(this.wikiApiUrl, { params });
+  }
+
+  getAttractionDetails(pageId: number): Observable<any> {
+    const params = {
+      action: 'query',
+      prop: 'extracts',
+      pageids: pageId.toString(),
+      format: 'json',
+      origin: '*',
+      exintro: true, // Get only the introduction
+      explaintext: true // Get plain text (no HTML)
     };
 
     return this.http.get(this.wikiApiUrl, { params });
